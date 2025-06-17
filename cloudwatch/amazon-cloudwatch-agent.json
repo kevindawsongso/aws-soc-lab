@@ -1,0 +1,15 @@
+{
+  "logs": {
+    "logs_collected": {
+      "windows_events": {
+        "collect_list": [
+          {
+            "event_name": "Security",
+            "event_levels": ["ERROR", "WARNING", "INFORMATION"],
+            "log_group_name": "honeypot/windows-security"
+          }
+        ]
+      }
+    }
+  }
+}

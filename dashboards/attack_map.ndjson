@@ -1,0 +1,8 @@
+{ "type": "index-pattern", "attributes": { "title": "honeypot-*", "timeFieldName": "@timestamp" } }
+{ "type": "visualization", "attributes": {
+  "title": "Global Attack Map",
+  "visState": "{\"title\":\"Attack Map\",\"type\":\"tile_map\",\"params\":{\"mapType\":\"Heatmap\",\"isDesaturated\":true,\"zoom\":2,\"mapCenter\":[0,0]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"location\",\"precision\":2}}]}",
+  "uiStateJSON": "{}",
+  "description": "Real-time login failure locations",
+  "version": 1
+} }
