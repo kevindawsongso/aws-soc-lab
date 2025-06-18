@@ -3,7 +3,7 @@ Description: >
   Cloud SOC Honeypot Lab - Deploys a Windows EC2 instance, VPC, Security Group, IAM Role, CloudWatch Agent, and OpenSearch domain.
 
 Parameters:
-  KeyName: key-05eba4aecf7c9680f
+  KeyName:
     Description: Name of an existing EC2 KeyPair to enable RDP access
     Type: AWS::EC2::KeyPair::KeyName
 
