@@ -4,7 +4,7 @@ Description: >
 
 Parameters:
   KeyName:
-    Description: Name of an existing EC2 KeyPair to enable RDP access
+    Description: aws-soc-lab
     Type: AWS::EC2::KeyPair::KeyName
 
 Resources:
