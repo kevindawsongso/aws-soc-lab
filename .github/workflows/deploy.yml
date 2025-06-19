@@ -1,4 +1,4 @@
-name: Deploy SOC Honeypot Lab
+name: Deploy aws-soc-lab
 
 on:
   push:
