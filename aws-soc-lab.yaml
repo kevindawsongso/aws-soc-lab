@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: >
-  Cloud SOC Honeypot Lab - Deploys a Windows EC2 instance, VPC, Security Group, IAM Role, CloudWatch Agent, and OpenSearch domain.
+  AWS Soc Lab - Deploys a Windows EC2 instance, VPC, Security Group, IAM Role, CloudWatch Agent, and OpenSearch domain.
 
 Parameters:
   KeyName:
