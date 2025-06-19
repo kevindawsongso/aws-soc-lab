@@ -6,6 +6,7 @@ Parameters:
   KeyName:
     Description: aws-soc-lab
     Type: AWS::EC2::KeyPair::KeyName
+    Default: aws-soc-lab
 
 Resources:
 
