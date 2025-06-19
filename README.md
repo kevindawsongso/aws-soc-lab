@@ -23,6 +23,7 @@ I’m using this project to explore how attackers behave in a controlled cloud e
 - [x] Set up secure key pair in AWS for SSH access
 - [x] Connected GitHub Actions for future CI/CD deployment
 - [ ] Deploy CloudFormation stack and validate setup
+    * Actively correcting issues with keypairs and cloudformation deployment
 - [ ] Configure logging: VPC Flow Logs, CloudTrail, GuardDuty
 - [ ] Simulate attacker behavior for detection testing
 
