@@ -27,8 +27,8 @@ jobs:
     - name: Deploy CloudFormation stack
       run: |
         aws cloudformation deploy \
-          --template-file aws-soc-honeypot-lab.yaml \
-          --stack-name soc-honeypot-lab \
+          --template-file aws-soc-lab.yaml \
+          --stack-name aws-soc-lab \
           --capabilities CAPABILITY_NAMED_IAM \
           --parameter-overrides \
             KeyName=YourEC2KeyPairName
