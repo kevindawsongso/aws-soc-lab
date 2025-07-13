@@ -1,86 +1,125 @@
-# 🛡️ AWS Honeypot Lab (In Progress)
+# AWS SOC Lab – Honeypot, Splunk, Logging, and Threat Detection
 
-This is a personal cloud security lab where I’m building a honeypot environment in AWS to simulate attacker behavior and practice real-world detection techniques. The project is inspired by SOC-style honeypots and is being adapted from an Azure-based tutorial into an AWS-native solution.
-
----
-
-## 🔍 Purpose
-
-I’m using this project to explore how attackers behave in a controlled cloud environment and how cloud-native tools can be used to detect, monitor, and respond. This lab is helping me develop skills in:
-
-- AWS infrastructure setup and automation
-- CloudFormation for infrastructure as code
-- Secure instance provisioning and access
-- CI/CD integration with GitHub Actions
-- Logging, detection, and cloud-based monitoring
+This lab project sets up an AWS-based Security Operations Center (SOC) environment to monitor and investigate network activity using a Dionaea honeypot, Amazon CloudWatch, and (optionally) Splunk. It includes a full logging and detection pipeline and integrates foundational AWS security services.
 
 ---
 
-## ✅ Current Progress
+## ✅ Lab Summary
 
-- [x] Studied Azure SOC lab architecture and adapted it for AWS
-- [x] Wrote initial **CloudFormation** template for EC2 honeypot
-- [x] Set up secure key pair in AWS for SSH access
-- [x] Connected GitHub Actions for future CI/CD deployment
-- [ ] Deploy CloudFormation stack and validate setup
-    * Actively correcting issues with keypairs and cloudformation deployment
-- [ ] Configure logging: VPC Flow Logs, CloudTrail, GuardDuty
-- [ ] Simulate attacker behavior for detection testing
+Deployed a **Dionaea honeypot EC2 instance** in a public subnet and a **Splunk EC2 instance** in a private subnet. Enabled log collection, forwarding, and visibility across AWS-native services with dashboards and visualizations.
 
 ---
 
-## ⚙️ Tools & Services
+## ☁️ Environment & Stack
 
-- **AWS EC2** – To host the honeypot
-- **AWS CloudFormation** – For automated infrastructure deployment
-- **AWS IAM** – Secure access and permission management
-- **GitHub Actions** – Deployment pipeline (coming soon)
-- *(Additional tools like GuardDuty, Security Hub, and WAF will be integrated later)*
-
----
-
-## 🧠 Key Learnings So Far
-
-- Writing and debugging CloudFormation templates requires careful attention to syntax and parameters.
-- IAM permissions and key management are critical for securing even test environments.
-- Automation setup (e.g., GitHub Actions) saves time and ensures consistency, but requires testing to get right.
-- It’s important to test in small increments — especially when provisioning public-facing resources.
-
----
-
-## 🚀 Next Steps
-
-- [ ] Finalize and deploy the CloudFormation stack
-- [ ] Validate SSH access and baseline functionality
-- [ ] Turn on logging and monitoring
-- [ ] Simulate basic attacks (port scans, login attempts)
-- [ ] Analyze logs and detection signals
-- [ ] Write detection rules and summarize findings
+- **EC2 Instances**:
+  - Dionaea Honeypot (Ubuntu AMI from Marketplace)
+  - Splunk Enterprise (Amazon Linux 2023)
+- **VPC Architecture**:
+  - Public & Private Subnets
+  - Route Tables with NAT Gateway (for outbound access)
+  - SSM VPC Endpoints (`ssm`, `ssmmessages`, `logs`)
+- **Security Groups**:
+  - `honeypot-sg`: exposed ports for fake services (FTP, MySQL, SMB, etc.)
+  - `splunk-sg`: restricted access, inbound 8000 (UI), 22 (SSH), 9997 (forwarding)
+- **Cloud Services Used**:
+  - AWS Systems Manager (SSM)
+  - CloudWatch Logs, Dashboards, Agent
+  - CloudTrail (S3 storage)
+  - VPC Flow Logs
+  - Amazon GuardDuty, Security Hub, AWS Inspector, AWS Detective (enabled)
 
 ---
 
-## 📁 Project Structure (Planned)
+## 🛠️ Key Steps Completed
 
-aws-honeypot-lab/
-├── cloudformation/
-│ └── honeypot-template.yaml
-├── .github/
-│ └── workflows/
-│ └── deploy.yml
-├── README.md
-└── logs/
-└── example-events/
+### Dionaea Honeypot
+- Deployed from hardened Marketplace AMI (Ubuntu 22)
+- Enabled inbound TCP ports (21, 22, 23, 80, 445, 3306, 11211, etc.)
+- Enabled SSH (port 52222) for internal access only
+- Installed CloudWatch Agent manually using CLI
+- Validated log flow from `/opt/leadingsecurity/dionaea/logs/dionaea.log` to CloudWatch
+
+### Splunk Instance
+- Launched in private subnet with EIP (for temporary SSH)
+- Installed from RPM using `wget`
+- Allowed inbound on port 8000 for Splunk Web UI
+- Will be configured to receive logs over TCP 9997
+
+### Cloud Logging & Monitoring
+- CloudWatch Agent config ships Dionaea logs to:
+  - `honeypot-dionaea-log`
+- VPC Flow Logs created:
+  - **Log Group:** `aws-honeypot-vpc-flowlogs`
+  - **IAM Role:** `VPCFlowLogs-Cloudwatch-aws-honeypot`
+  - **Aggregation Interval:** 10 mins
+- Created custom **CloudWatch Dashboard**:
+  - Top Rejected Ports
+  - Attacker IPs
+  - Connection attempts over time
 
 ---
 
-## 📎 References
+## 🔐 AWS Security Services Enabled
 
-- [CloudFormation Template Anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
-- [AWS GuardDuty Overview](https://aws.amazon.com/guardduty/)
+These are active and will be configured to receive and act on findings:
+
+| Service         | Status  | Notes |
+|------------------|---------|-------|
+| GuardDuty        | ✅ Enabled | Threat detection |
+| AWS Detective     | ✅ Enabled | Forensic graph investigation |
+| Security Hub     | ✅ Enabled | Aggregates GuardDuty, Inspector |
+| AWS Inspector    | ✅ Enabled | EC2 CVE scanning |
 
 ---
 
-## 📌 Status
+## 🔎 Sample CloudWatch Logs Insights Query
 
-**Currently setting up the initial infrastructure.**  
-This is an active learning project and will be updated regularly as I progress through setup, detection, and analysis.
+```sql
+fields @timestamp, @message
+| filter @message like /accept/
+| parse @message "*accept/*/* [*:*->*:*]*" as proto, _, dst_addr, dst_port, src_addr, src_port, _
+| stats count() as attempts by dst_port
+```
+
+---
+
+## 🧾 VPC Flow Log Configuration
+
+- **Resource ID:** vpc-02793ce57e31ab7ce
+- **Log Group:** `aws-honeypot-vpc-flowlogs`
+- **IAM Role:** `VPCFlowLogs-Cloudwatch-aws-honeypot`
+- **Traffic Type:** ALL
+- **Log Format:**
+
+```text
+${version} ${account-id} ${interface-id} ${srcaddr} ${dstaddr} ${srcport} ${dstport} ${protocol} ${packets} ${bytes} ${start} ${end} ${action} ${log-status}
+```
+
+---
+
+## ⚠️ Common Stumbling Blocks for Cloud Beginners
+
+| Area | Gotcha |
+|------|--------|
+| EC2 SSH | Key pair permissions must be `chmod 400` (or restricted on Windows) |
+| SSM | Requires SSM agent installed + correct IAM role + VPC endpoints |
+| VPC Endpoints | Needed for private subnet instances to reach CloudWatch & SSM |
+| CloudWatch Agent | Agent must be installed + configured + IAM role attached |
+| Log Parsing | Many log types require custom parsing to become useful |
+| GuardDuty/Detective | Findings appear after initial scan period (not immediate) |
+| Splunk Access | Requires correct port (8000) and EIP temporarily for setup |
+
+---
+
+## 🔗 To Do Next
+
+- Configure Splunk to receive logs via forwarder or HTTP Event Collector
+- Write detection rules for honeypot log anomalies
+- Configure Security Hub integrations for automated response
+- Forward archived logs to S3 for long-term storage
+
+---
+
+Maintained as part of a real-world AWS security lab project by Kevin.
+
