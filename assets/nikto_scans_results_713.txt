@@ -1,0 +1,18 @@
+┌──(kali㉿KDDELL)-[/usr/share/wordlists]
+└─$ nikto -host http://54.90.164.244
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          54.90.164.244
++ Target Hostname:    54.90.164.244
++ Target Port:        80
++ Start Time:         2025-07-13 21:16:42 (GMT-4)
+---------------------------------------------------------------------------
++ Server: nginx
++ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ No CGI Directories found (use '-C all' to force check all possible dirs)
+
++ OPTIONS: Allowed HTTP Methods: OPTIONS, GET, HEAD, POST .
++ /./: Appending '/./' to a directory allows indexing.
++ /%2e/: Weblogic allows source code or directory listing, upgrade to v6.0 SP1 or higher. See: http://www.securityfocus.com/bid/2513
++ /%2f/: Weblogic allows source code or directory listing, upgrade to v6.0 SP1 or higher. See: http://www.securityfocus.com/bid/2513

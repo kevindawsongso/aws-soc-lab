@@ -1,11 +1,7 @@
 
 # AWS SOC Lab – Honeypot, Splunk, and Cloud Logging
-## 🔎 Detection Highlights
 
-This lab captures real-world attack traffic against a cloud-based honeypot, with analysis powered by AWS GuardDuty, CloudWatch, and Splunk.
-
-🧪 See full details, attacker IPs, and mitigation insights in [SECURITY_FINDINGS.md](./SECURITY_FINDINGS.md)
-
+This lab project sets up an AWS-based Security Operations Center (SOC) environment to monitor honeypot traffic using CloudWatch with optional Splunk deployment TBA.
 
 ## ✅ Lab Summary
 
@@ -96,6 +92,13 @@ fields @timestamp, @message
 | Private Subnet Access | Needs NAT or VPC endpoints for internet access |
 
 ---
+
+
+## 🔎 Detection Highlights
+
+This lab captured real-world attack traffic against a cloud-based honeypot, with analysis powered by AWS GuardDuty, CloudWatch, and Splunk.
+
+🧪 See full details, attacker IPs, and mitigation insights in [SECURITY_FINDINGS.md](./SECURITY_FINDINGS.md)
 
 ## ✅ Next Steps
 

@@ -1,0 +1,743 @@
+[
+  {
+    "AccountId": "114326583326",
+    "Arn": "arn:aws:guardduty:us-east-1:114326583326:detector/50cbc4dafcd8048c3552ec10c60e5f73/finding/f6cbfbc97e1910a1c66f33fa65f53c99",
+    "CreatedAt": "2025-07-11T03:41:34.642Z",
+    "Description": "An EC2 instance has an unprotected port which is being probed by a known malicious host.",
+    "Id": "f6cbfbc97e1910a1c66f33fa65f53c99",
+    "Partition": "aws",
+    "Region": "us-east-1",
+    "Resource": {
+      "InstanceDetails": {
+        "AvailabilityZone": "us-east-1a",
+        "IamInstanceProfile": {
+          "Arn": "arn:aws:iam::114326583326:instance-profile/ec2-ssm-role",
+          "Id": "AIPARVHTFHAPM4DSN36U6"
+        },
+        "ImageDescription": "leadingsecurity-honeypot-ubuntu-2204-ami",
+        "ImageId": "ami-08648fbd3c814d802",
+        "InstanceId": "i-0057c987d2417fa90",
+        "InstanceState": "running",
+        "InstanceType": "t3.micro",
+        "LaunchTime": "2025-07-12T00:49:19.000Z",
+        "NetworkInterfaces": [
+          {
+            "Ipv6Addresses": [],
+            "NetworkInterfaceId": "eni-05195b68d11f1172f",
+            "PrivateDnsName": "ip-10-10-1-228.ec2.internal",
+            "PrivateIpAddress": "10.10.1.228",
+            "PrivateIpAddresses": [
+              {
+                "PrivateDnsName": "ip-10-10-1-228.ec2.internal",
+                "PrivateIpAddress": "10.10.1.228"
+              }
+            ],
+            "PublicDnsName": "ec2-54-90-164-244.compute-1.amazonaws.com",
+            "PublicIp": "54.90.164.244",
+            "SecurityGroups": [
+              {
+                "GroupId": "sg-00b8e3a8462ea8d1d",
+                "GroupName": "Dionaea and Cowrie HunnyPot - Ubuntu 22.04 supported by Leading Security-1.0e-AutogenByAWSMP--1"
+              }
+            ],
+            "SubnetId": "subnet-019a9e21e4fd232db",
+            "VpcId": "vpc-02793ce57e31ab7ce"
+          }
+        ],
+        "ProductCodes": [
+          {
+            "Code": "c6vxoc7xuewp8zln2busftwux",
+            "ProductType": "marketplace"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "dinoaea"
+          }
+        ]
+      },
+      "ResourceType": "Instance"
+    },
+    "SchemaVersion": "2.0",
+    "Service": {
+      "Action": {
+        "ActionType": "PORT_PROBE",
+        "PortProbeAction": {
+          "Blocked": false,
+          "PortProbeDetails": [
+            {
+              "LocalPortDetails": {
+                "Port": 11211,
+                "PortName": "Unknown"
+              },
+              "RemoteIpDetails": {
+                "City": {
+                  "CityName": "UNKNOWN"
+                },
+                "Country": {
+                  "CountryName": "United States"
+                },
+                "GeoLocation": {
+                  "Lat": 37.751,
+                  "Lon": -97.822
+                },
+                "IpAddressV4": "162.142.125.126",
+                "Organization": {
+                  "Asn": "398324",
+                  "AsnOrg": "CENSYS-ARIN-01",
+                  "Isp": "Censys",
+                  "Org": "Censys"
+                }
+              }
+            },
+            {
+              "LocalPortDetails": {
+                "Port": 1433,
+                "PortName": "SQL"
+              },
+              "RemoteIpDetails": {
+                "City": {
+                  "CityName": "UNKNOWN"
+                },
+                "Country": {
+                  "CountryName": "United States"
+                },
+                "GeoLocation": {
+                  "Lat": 37.751,
+                  "Lon": -97.822
+                },
+                "IpAddressV4": "162.142.125.220",
+                "Organization": {
+                  "Asn": "398324",
+                  "AsnOrg": "CENSYS-ARIN-01",
+                  "Isp": "Censys",
+                  "Org": "Censys"
+                }
+              }
+            },
+            {
+              "LocalPortDetails": {
+                "Port": 3306,
+                "PortName": "MySQL"
+              },
+              "RemoteIpDetails": {
+                "City": {
+                  "CityName": "Tokyo"
+                },
+                "Country": {
+                  "CountryName": "Japan"
+                },
+                "GeoLocation": {
+                  "Lat": 35.6893,
+                  "Lon": 139.6899
+                },
+                "IpAddressV4": "46.8.112.33",
+                "Organization": {
+                  "Asn": "141167",
+                  "AsnOrg": "AgotoZ HK Limited",
+                  "Isp": "AgotoZ HK",
+                  "Org": "AgotoZ HK"
+                }
+              }
+            },
+            {
+              "LocalPortDetails": {
+                "Port": 445,
+                "PortName": "SMB"
+              },
+              "RemoteIpDetails": {
+                "City": {
+                  "CityName": "UNKNOWN"
+                },
+                "Country": {
+                  "CountryName": "United States"
+                },
+                "GeoLocation": {
+                  "Lat": 37.751,
+                  "Lon": -97.822
+                },
+                "IpAddressV4": "162.142.125.90",
+                "Organization": {
+                  "Asn": "398324",
+                  "AsnOrg": "CENSYS-ARIN-01",
+                  "Isp": "Censys",
+                  "Org": "Censys"
+                }
+              }
+            },
+            {
+              "LocalPortDetails": {
+                "Port": 23,
+                "PortName": "Telnet"
+              },
+              "RemoteIpDetails": {
+                "City": {
+                  "CityName": "Mexico City"
+                },
+                "Country": {
+                  "CountryName": "Mexico"
+                },
+                "GeoLocation": {
+                  "Lat": 19.4324,
+                  "Lon": -99.1229
+                },
+                "IpAddressV4": "122.8.184.49",
+                "Organization": {
+                  "Asn": "136907",
+                  "AsnOrg": "HUAWEI CLOUDS",
+                  "Isp": "Huawei Cloud",
+                  "Org": "Huawei Cloud"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Evidence": {
+        "ThreatIntelligenceDetails": [
+          {
+            "ThreatListName": "ProofPoint",
+            "ThreatNames": []
+          }
+        ]
+      },
+      "Archived": false,
+      "Count": 62,
+      "DetectorId": "50cbc4dafcd8048c3552ec10c60e5f73",
+      "EventFirstSeen": "2025-07-11T03:38:55.000Z",
+      "EventLastSeen": "2025-07-13T19:08:15.000Z",
+      "ResourceRole": "TARGET",
+      "ServiceName": "guardduty",
+      "AdditionalInfo": {
+        "Value": "{\"threatListName\":\"ProofPoint\"}",
+        "Type": "default"
+      }
+    },
+    "Severity": 2,
+    "Title": "An unprotected port on EC2 instance i-0057c987d2417fa90 is being probed.",
+    "Type": "Recon:EC2/PortProbeUnprotectedPort",
+    "UpdatedAt": "2025-07-13T19:13:41.069Z"
+  },
+  {
+    "AccountId": "114326583326",
+    "Arn": "arn:aws:guardduty:us-east-1:114326583326:detector/50cbc4dafcd8048c3552ec10c60e5f73/finding/3ccbfe991e872f93b1f0aac42aeb5999",
+    "CreatedAt": "2025-07-12T05:53:37.550Z",
+    "Description": "110.39.169.73 is performing SSH brute force attacks against i-0057c987d2417fa90. Brute force attacks are used to gain unauthorized access to your instance by guessing the SSH password.",
+    "Id": "3ccbfe991e872f93b1f0aac42aeb5999",
+    "Partition": "aws",
+    "Region": "us-east-1",
+    "Resource": {
+      "InstanceDetails": {
+        "AvailabilityZone": "us-east-1a",
+        "IamInstanceProfile": {
+          "Arn": "arn:aws:iam::114326583326:instance-profile/ec2-ssm-role",
+          "Id": "AIPARVHTFHAPM4DSN36U6"
+        },
+        "ImageDescription": "leadingsecurity-honeypot-ubuntu-2204-ami",
+        "ImageId": "ami-08648fbd3c814d802",
+        "InstanceId": "i-0057c987d2417fa90",
+        "InstanceState": "running",
+        "InstanceType": "t3.micro",
+        "LaunchTime": "2025-07-12T00:49:19.000Z",
+        "NetworkInterfaces": [
+          {
+            "Ipv6Addresses": [],
+            "NetworkInterfaceId": "eni-05195b68d11f1172f",
+            "PrivateDnsName": "ip-10-10-1-228.ec2.internal",
+            "PrivateIpAddress": "10.10.1.228",
+            "PrivateIpAddresses": [
+              {
+                "PrivateDnsName": "ip-10-10-1-228.ec2.internal",
+                "PrivateIpAddress": "10.10.1.228"
+              }
+            ],
+            "PublicDnsName": "ec2-54-90-164-244.compute-1.amazonaws.com",
+            "PublicIp": "54.90.164.244",
+            "SecurityGroups": [
+              {
+                "GroupId": "sg-00b8e3a8462ea8d1d",
+                "GroupName": "Dionaea and Cowrie HunnyPot - Ubuntu 22.04 supported by Leading Security-1.0e-AutogenByAWSMP--1"
+              }
+            ],
+            "SubnetId": "subnet-019a9e21e4fd232db",
+            "VpcId": "vpc-02793ce57e31ab7ce"
+          }
+        ],
+        "ProductCodes": [
+          {
+            "Code": "c6vxoc7xuewp8zln2busftwux",
+            "ProductType": "marketplace"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "dinoaea"
+          }
+        ]
+      },
+      "ResourceType": "Instance"
+    },
+    "SchemaVersion": "2.0",
+    "Service": {
+      "Action": {
+        "ActionType": "NETWORK_CONNECTION",
+        "NetworkConnectionAction": {
+          "Blocked": false,
+          "ConnectionDirection": "INBOUND",
+          "LocalPortDetails": {
+            "Port": 22,
+            "PortName": "SSH"
+          },
+          "Protocol": "TCP",
+          "LocalIpDetails": {
+            "IpAddressV4": "10.10.1.228"
+          },
+          "LocalNetworkInterface": "eni-05195b68d11f1172f",
+          "RemoteIpDetails": {
+            "City": {
+              "CityName": "New Mirpur City"
+            },
+            "Country": {
+              "CountryName": "Pakistan"
+            },
+            "GeoLocation": {
+              "Lat": 33.1478,
+              "Lon": 73.7519
+            },
+            "IpAddressV4": "110.39.169.73",
+            "Organization": {
+              "Asn": "38264",
+              "AsnOrg": "National WiMAXIMS environment",
+              "Isp": "Wateen Telecom",
+              "Org": "Wateen Telecom"
+            }
+          },
+          "RemotePortDetails": {
+            "Port": 37050,
+            "PortName": "Unknown"
+          }
+        }
+      },
+      "Archived": false,
+      "Count": 1,
+      "DetectorId": "50cbc4dafcd8048c3552ec10c60e5f73",
+      "EventFirstSeen": "2025-07-12T05:47:22.000Z",
+      "EventLastSeen": "2025-07-12T05:49:22.000Z",
+      "ResourceRole": "TARGET",
+      "ServiceName": "guardduty",
+      "AdditionalInfo": {
+        "Value": "{}",
+        "Type": "default"
+      }
+    },
+    "Severity": 2,
+    "Title": "110.39.169.73 is performing SSH brute force attacks against i-0057c987d2417fa90.",
+    "Type": "UnauthorizedAccess:EC2/SSHBruteForce",
+    "UpdatedAt": "2025-07-12T05:53:37.550Z"
+  },
+  {
+    "AccountId": "114326583326",
+    "Arn": "arn:aws:guardduty:us-east-1:114326583326:detector/50cbc4dafcd8048c3552ec10c60e5f73/finding/b2cbe37770d0060a3d28574bfb1337d9",
+    "CreatedAt": "2025-07-01T17:00:33.568Z",
+    "Description": "The Amazon S3 bucket kevindawson-resume-bucket was granted public anonymous access by gsocyberadmin calling PutBucketPolicy. If this behavior is not expected, it may indicate a configuration mistake or that your credentials are compromised.",
+    "Id": "b2cbe37770d0060a3d28574bfb1337d9",
+    "Partition": "aws",
+    "Region": "us-east-1",
+    "Resource": {
+      "AccessKeyDetails": {
+        "AccessKeyId": "ASIARVHTFHAPFNYYV3IB",
+        "PrincipalId": "AIDARVHTFHAPOWFIJGAAO",
+        "UserName": "gsocyberadmin",
+        "UserType": "IAMUser"
+      },
+      "S3BucketDetails": [
+        {
+          "Arn": "arn:aws:s3:::kevindawson-resume-bucket",
+          "Name": "kevindawson-resume-bucket",
+          "Type": "Destination",
+          "CreatedAt": "2025-05-22T20:13:53.000Z",
+          "Owner": {
+            "Id": "6ebb0d2dfa82e2362c1259574429cbde1a3b1c6c1ef63b9601a0868d933818ff"
+          },
+          "DefaultServerSideEncryption": {
+            "EncryptionType": "AES256"
+          },
+          "PublicAccess": {
+            "PermissionConfiguration": {
+              "BucketLevelPermissions": {
+                "AccessControlList": {
+                  "AllowsPublicReadAccess": false,
+                  "AllowsPublicWriteAccess": false
+                },
+                "BucketPolicy": {
+                  "AllowsPublicReadAccess": true,
+                  "AllowsPublicWriteAccess": false
+                },
+                "BlockPublicAccess": {
+                  "IgnorePublicAcls": false,
+                  "RestrictPublicBuckets": false,
+                  "BlockPublicAcls": false,
+                  "BlockPublicPolicy": false
+                }
+              },
+              "AccountLevelPermissions": {
+                "BlockPublicAccess": {
+                  "IgnorePublicAcls": false,
+                  "RestrictPublicBuckets": false,
+                  "BlockPublicAcls": false,
+                  "BlockPublicPolicy": false
+                }
+              }
+            },
+            "EffectivePermission": "PUBLIC"
+          }
+        }
+      ],
+      "ResourceType": "AccessKey"
+    },
+    "SchemaVersion": "2.0",
+    "Service": {
+      "Action": {
+        "ActionType": "AWS_API_CALL",
+        "AwsApiCallAction": {
+          "Api": "PutBucketPolicy",
+          "CallerType": "Remote IP",
+          "RemoteIpDetails": {
+            "City": {
+              "CityName": "Orlando"
+            },
+            "Country": {
+              "CountryName": "United States"
+            },
+            "GeoLocation": {
+              "Lat": 28.3943,
+              "Lon": -81.3615
+            },
+            "IpAddressV4": "167.19.28.249",
+            "Organization": {
+              "Asn": "22221",
+              "AsnOrg": "NGIC-COMM",
+              "Isp": "Ngic-comm",
+              "Org": "Ngic-comm"
+            }
+          },
+          "ServiceName": "s3.amazonaws.com",
+          "AffectedResources": {
+            "AWS::S3::Bucket": "kevindawson-resume-bucket"
+          }
+        }
+      },
+      "Archived": false,
+      "Count": 1,
+      "DetectorId": "50cbc4dafcd8048c3552ec10c60e5f73",
+      "EventFirstSeen": "2025-07-01T16:53:26.000Z",
+      "EventLastSeen": "2025-07-01T16:53:26.000Z",
+      "ResourceRole": "TARGET",
+      "ServiceName": "guardduty",
+      "AdditionalInfo": {
+        "Value": "{}",
+        "Type": "default"
+      }
+    },
+    "Severity": 8,
+    "Title": "Amazon S3 Public Anonymous Access was granted for the S3 bucket kevindawson-resume-bucket.",
+    "Type": "Policy:S3/BucketAnonymousAccessGranted",
+    "UpdatedAt": "2025-07-01T17:00:33.568Z"
+  },
+  {
+    "AccountId": "114326583326",
+    "Arn": "arn:aws:guardduty:us-east-1:114326583326:detector/50cbc4dafcd8048c3552ec10c60e5f73/finding/e4cbd934e22d3f261983a1e6f8f566ab",
+    "CreatedAt": "2025-06-27T17:22:45.466Z",
+    "Description": "The API DeleteSession was invoked using root credentials from IP address 167.19.94.248.",
+    "Id": "e4cbd934e22d3f261983a1e6f8f566ab",
+    "Partition": "aws",
+    "Region": "us-east-1",
+    "Resource": {
+      "AccessKeyDetails": {
+        "AccessKeyId": "ASIARVHTFHAPBRRKLFJ5",
+        "PrincipalId": "114326583326",
+        "UserName": "Root",
+        "UserType": "Root"
+      },
+      "ResourceType": "AccessKey"
+    },
+    "SchemaVersion": "2.0",
+    "Service": {
+      "Action": {
+        "ActionType": "AWS_API_CALL",
+        "AwsApiCallAction": {
+          "Api": "DeleteSession",
+          "CallerType": "Remote IP",
+          "RemoteIpDetails": {
+            "City": {
+              "CityName": "Winston-Salem"
+            },
+            "Country": {
+              "CountryName": "United States"
+            },
+            "GeoLocation": {
+              "Lat": 36.0406,
+              "Lon": -80.26
+            },
+            "IpAddressV4": "167.19.94.248",
+            "Organization": {
+              "Asn": "22221",
+              "AsnOrg": "NGIC-COMM",
+              "Isp": "Ngic-comm",
+              "Org": "Ngic-comm"
+            }
+          },
+          "ServiceName": "cloudshell.amazonaws.com",
+          "AffectedResources": {}
+        }
+      },
+      "Archived": false,
+      "Count": 327,
+      "DetectorId": "50cbc4dafcd8048c3552ec10c60e5f73",
+      "EventFirstSeen": "2025-06-27T17:16:24.000Z",
+      "EventLastSeen": "2025-06-27T20:44:45.000Z",
+      "ResourceRole": "TARGET",
+      "ServiceName": "guardduty",
+      "AdditionalInfo": {
+        "Value": "{}",
+        "Type": "default"
+      }
+    },
+    "Severity": 2,
+    "Title": "The API DeleteSession was invoked using root credentials.",
+    "Type": "Policy:IAMUser/RootCredentialUsage",
+    "UpdatedAt": "2025-06-27T20:51:46.936Z"
+  },
+  {
+    "AccountId": "114326583326",
+    "Arn": "arn:aws:guardduty:us-east-1:114326583326:detector/50cbc4dafcd8048c3552ec10c60e5f73/finding/6ecbd54a7cd7fd9f67dc7fc6de1f9559",
+    "CreatedAt": "2025-06-26T04:52:59.439Z",
+    "Description": "198.38.88.182 is performing SSH brute force attacks against i-07285643446c7912f. Brute force attacks are used to gain unauthorized access to your instance by guessing the SSH password.",
+    "Id": "6ecbd54a7cd7fd9f67dc7fc6de1f9559",
+    "Partition": "aws",
+    "Region": "us-east-1",
+    "Resource": {
+      "InstanceDetails": {
+        "AvailabilityZone": "us-east-1a",
+        "ImageDescription": "leadingsecurity-honeypot-ubuntu-2204-ami",
+        "ImageId": "ami-08648fbd3c814d802",
+        "InstanceId": "i-07285643446c7912f",
+        "InstanceState": "running",
+        "InstanceType": "t3.micro",
+        "LaunchTime": "2025-06-25T20:34:23.000Z",
+        "NetworkInterfaces": [
+          {
+            "Ipv6Addresses": [],
+            "NetworkInterfaceId": "eni-0bf39828b296320b6",
+            "PrivateDnsName": "ip-10-0-2-24.ec2.internal",
+            "PrivateIpAddress": "10.0.2.24",
+            "PrivateIpAddresses": [
+              {
+                "PrivateDnsName": "ip-10-0-2-24.ec2.internal",
+                "PrivateIpAddress": "10.0.2.24"
+              }
+            ],
+            "PublicDnsName": "ec2-54-91-113-236.compute-1.amazonaws.com",
+            "PublicIp": "54.91.113.236",
+            "SecurityGroups": [
+              {
+                "GroupId": "sg-0af2f833c3919df07",
+                "GroupName": "aws-soc-lab-public"
+              }
+            ],
+            "SubnetId": "subnet-03df88a4537b1a82f",
+            "VpcId": "vpc-0f54924557d252437"
+          }
+        ],
+        "ProductCodes": [
+          {
+            "Code": "c6vxoc7xuewp8zln2busftwux",
+            "ProductType": "marketplace"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "dionaea"
+          }
+        ]
+      },
+      "ResourceType": "Instance"
+    },
+    "SchemaVersion": "2.0",
+    "Service": {
+      "Action": {
+        "ActionType": "NETWORK_CONNECTION",
+        "NetworkConnectionAction": {
+          "Blocked": false,
+          "ConnectionDirection": "INBOUND",
+          "LocalPortDetails": {
+            "Port": 22,
+            "PortName": "SSH"
+          },
+          "Protocol": "TCP",
+          "LocalIpDetails": {
+            "IpAddressV4": "10.0.2.24"
+          },
+          "LocalNetworkInterface": "eni-0bf39828b296320b6",
+          "RemoteIpDetails": {
+            "City": {
+              "CityName": "Mumbai"
+            },
+            "Country": {
+              "CountryName": "India"
+            },
+            "GeoLocation": {
+              "Lat": 19.0336,
+              "Lon": 73.0118
+            },
+            "IpAddressV4": "198.38.88.182",
+            "Organization": {
+              "Asn": "199404",
+              "AsnOrg": "WHG Hosting Services Ltd",
+              "Isp": "WHG Hosting Services",
+              "Org": "WHG Hosting Services"
+            }
+          },
+          "RemotePortDetails": {
+            "Port": 34974,
+            "PortName": "Unknown"
+          }
+        }
+      },
+      "Archived": false,
+      "Count": 1,
+      "DetectorId": "50cbc4dafcd8048c3552ec10c60e5f73",
+      "EventFirstSeen": "2025-06-26T04:48:08.000Z",
+      "EventLastSeen": "2025-06-26T04:51:03.000Z",
+      "ResourceRole": "TARGET",
+      "ServiceName": "guardduty",
+      "AdditionalInfo": {
+        "Value": "{}",
+        "Type": "default"
+      }
+    },
+    "Severity": 2,
+    "Title": "198.38.88.182 is performing SSH brute force attacks against i-07285643446c7912f.",
+    "Type": "UnauthorizedAccess:EC2/SSHBruteForce",
+    "UpdatedAt": "2025-06-26T04:52:59.439Z"
+  },
+  {
+    "AccountId": "114326583326",
+    "Arn": "arn:aws:guardduty:us-east-1:114326583326:detector/50cbc4dafcd8048c3552ec10c60e5f73/finding/becbd53beff264ea5aa175a4f06a5b36",
+    "CreatedAt": "2025-06-26T04:21:12.292Z",
+    "Description": "An EC2 instance has an unprotected port which is being probed by a known malicious host.",
+    "Id": "becbd53beff264ea5aa175a4f06a5b36",
+    "Partition": "aws",
+    "Region": "us-east-1",
+    "Resource": {
+      "InstanceDetails": {
+        "AvailabilityZone": "us-east-1a",
+        "ImageDescription": "leadingsecurity-honeypot-ubuntu-2204-ami",
+        "ImageId": "ami-08648fbd3c814d802",
+        "InstanceId": "i-07285643446c7912f",
+        "InstanceState": "running",
+        "InstanceType": "t3.micro",
+        "LaunchTime": "2025-06-25T20:34:23.000Z",
+        "NetworkInterfaces": [
+          {
+            "Ipv6Addresses": [],
+            "NetworkInterfaceId": "eni-0bf39828b296320b6",
+            "PrivateDnsName": "ip-10-0-2-24.ec2.internal",
+            "PrivateIpAddress": "10.0.2.24",
+            "PrivateIpAddresses": [
+              {
+                "PrivateDnsName": "ip-10-0-2-24.ec2.internal",
+                "PrivateIpAddress": "10.0.2.24"
+              }
+            ],
+            "PublicDnsName": "ec2-54-91-113-236.compute-1.amazonaws.com",
+            "PublicIp": "54.91.113.236",
+            "SecurityGroups": [
+              {
+                "GroupId": "sg-0af2f833c3919df07",
+                "GroupName": "aws-soc-lab-public"
+              }
+            ],
+            "SubnetId": "subnet-03df88a4537b1a82f",
+            "VpcId": "vpc-0f54924557d252437"
+          }
+        ],
+        "ProductCodes": [
+          {
+            "Code": "c6vxoc7xuewp8zln2busftwux",
+            "ProductType": "marketplace"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "dionaea"
+          }
+        ]
+      },
+      "ResourceType": "Instance"
+    },
+    "SchemaVersion": "2.0",
+    "Service": {
+      "Action": {
+        "ActionType": "PORT_PROBE",
+        "PortProbeAction": {
+          "Blocked": false,
+          "PortProbeDetails": [
+            {
+              "LocalPortDetails": {
+                "Port": 23,
+                "PortName": "Telnet"
+              },
+              "RemoteIpDetails": {
+                "City": {
+                  "CityName": "Amsterdam"
+                },
+                "Country": {
+                  "CountryName": "Netherlands"
+                },
+                "GeoLocation": {
+                  "Lat": 52.3759,
+                  "Lon": 4.8975
+                },
+                "IpAddressV4": "94.102.49.186",
+                "Organization": {
+                  "Asn": "202425",
+                  "AsnOrg": "IP Volume inc",
+                  "Isp": "IP Volume",
+                  "Org": "IP Volume"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Evidence": {
+        "ThreatIntelligenceDetails": [
+          {
+            "ThreatListName": "ProofPoint",
+            "ThreatNames": []
+          }
+        ]
+      },
+      "Archived": false,
+      "Count": 2,
+      "DetectorId": "50cbc4dafcd8048c3552ec10c60e5f73",
+      "EventFirstSeen": "2025-06-26T04:17:04.000Z",
+      "EventLastSeen": "2025-06-26T04:20:03.000Z",
+      "ResourceRole": "TARGET",
+      "ServiceName": "guardduty",
+      "AdditionalInfo": {
+        "Value": "{\"threatListName\":\"ProofPoint\"}",
+        "Type": "default"
+      }
+    },
+    "Severity": 2,
+    "Title": "An unprotected port on EC2 instance i-07285643446c7912f is being probed.",
+    "Type": "Recon:EC2/PortProbeUnprotectedPort",
+    "UpdatedAt": "2025-06-26T04:25:13.493Z"
+  }
+]
