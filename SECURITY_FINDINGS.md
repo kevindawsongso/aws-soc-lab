@@ -43,7 +43,7 @@ IP Address	Location	Threat Type	Source
 ⸻
 
 📂 Related Files
-	•	guard_duty_findings_713.json – Raw AWS GuardDuty output
-	•	hydra_scan_results_713.txt – FTP brute-force log
-	•	nikto_scans_results_713.txt – Web server vulnerability report
-	•	nmap_scan_results_713.md – Port and service enumeration
+• [guard_duty_findings_713.json](./assets/guard_duty_findings_713.json)
+• [hydra_scan_results_713.txt](./assets/hydra_scan_results_713.txt)
+• [nikto_scans_results_713.txt](./assets/nikto_scans_results_713.txt)
+• [nmap_scan_results_713.md](./assets/nmap_scan_results_713.md)

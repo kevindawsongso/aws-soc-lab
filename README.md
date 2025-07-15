@@ -6,7 +6,6 @@ This lab captures real-world attack traffic against a cloud-based honeypot, with
 
 🧪 See full details, attacker IPs, and mitigation insights in [SECURITY_FINDINGS.md](./SECURITY_FINDINGS.md)
 
-
 ## ✅ Lab Summary
 
 Deployed a **Dionaea honeypot EC2 instance** and a **Splunk EC2 instance**. Configured logging across services and built out **CloudWatch dashboards** to visualize attacker traffic.
