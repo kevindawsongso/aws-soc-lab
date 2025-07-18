@@ -1,0 +1,13 @@
+#cloud-config
+package_update: true
+packages:
+  - wget
+  - curl
+
+runcmd:
+  - wget -O splunkforwarder.tgz 'https://download.splunk.com/products/universalforwarder/releases/9.1.2/linux/splunkforwarder-9.1.2-Linux-x86_64.tgz'
+  - tar -xvzf splunkforwarder.tgz -C /opt
+  - /opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --no-prompt
+  - /opt/splunkforwarder/bin/splunk enable boot-start
+  - /opt/splunkforwarder/bin/splunk add forward-server SPLUNK_PRIVATE_IP:9997 -auth admin:changeme123
+  - /opt/splunkforwarder/bin/splunk add monitor /var/log -auth admin:changeme123

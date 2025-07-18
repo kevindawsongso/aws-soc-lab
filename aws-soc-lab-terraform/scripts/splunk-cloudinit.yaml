@@ -1,0 +1,15 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - wget
+  - ufw
+
+runcmd:
+  - cd /opt
+  - wget -O splunk.tgz 'https://download.splunk.com/products/splunk/releases/9.1.2/linux/splunk-9.1.2-77f73c9edb85-Linux-x86_64.tgz'
+  - tar -xvzf splunk.tgz
+  - /opt/splunk/bin/splunk start --accept-license --answer-yes --no-prompt --seed-passwd changeme123
+  - /opt/splunk/bin/splunk enable boot-start
+  - ufw allow 8000/tcp
+  - ufw --force enable
